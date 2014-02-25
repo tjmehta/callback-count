@@ -1,6 +1,6 @@
 {
   "name": "callback-count",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Count your callbacks before continuing. A tiny control flow helper that supports dynamic counting.",
   "main": "index.js",
   "scripts": {
