@@ -8,6 +8,7 @@ function CallbackCounter (count, done) { // or function CallbackCounter (done)
   this.count = count || 0;
   this.done  = done  || noop;
   this.results = [];
+  this.next = this.next.bind(this);
 }
 CallbackCounter.prototype.inc = function () {
   this.count++;
@@ -33,6 +34,6 @@ CallbackCounter.prototype.next = function (err) { // function (err, results...)
   return this;
 };
 
-module.exports.createCounter = function (count, done) { // or function (done)
+module.exports = function createCounter (count, done) { // or function (done)
   return new CallbackCounter(done);
 };
