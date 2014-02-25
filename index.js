@@ -35,5 +35,5 @@ CallbackCounter.prototype.next = function (err) { // function (err, results...)
 };
 
 module.exports = function createCounter (count, done) { // or function (done)
-  return new CallbackCounter(done);
+  return new CallbackCounter(count, done);
 };
