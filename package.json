@@ -1,0 +1,31 @@
+{
+  "name": "callback-count",
+  "version": "0.0.0",
+  "description": "Count your callbacks before continuing. A tiny control flow helper that supports dynamic counting.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjmehta/callback-count.git"
+  },
+  "keywords": [
+    "callback",
+    "count",
+    "callback",
+    "count",
+    "counter",
+    "control",
+    "flow",
+    "next",
+    "done",
+    "dynamic"
+  ],
+  "author": "Tejesh Mehta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjmehta/callback-count/issues"
+  },
+  "homepage": "https://github.com/tjmehta/callback-count"
+}

@@ -1,0 +1,38 @@
+var noop = function () {};
+
+function CallbackCounter (count, done) { // or function CallbackCounter (done)
+  if (typeof count === 'function') {
+    done = count;
+    count = null;
+  }
+  this.count = count || 0;
+  this.done  = done  || noop;
+  this.results = [];
+}
+CallbackCounter.prototype.inc = function () {
+  this.count++;
+  return this;
+};
+CallbackCounter.prototype.next = function (err) { // function (err, results...)
+  var results;
+  if (this.err) {
+    return; // already errored
+  }
+  else if (err) {
+    this.err = err;
+    this.done(err);
+  }
+  else {
+    this.count--;
+    results = Array.prototype.slice.call(arguments, 1);
+    this.results.push(results);
+    if (this.count === 0) {
+      this.done(null, this.results);
+    }
+  }
+  return this;
+};
+
+module.exports.createCounter = function (count, done) { // or function (done)
+  return new CallbackCounter(done);
+};
