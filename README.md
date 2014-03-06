@@ -1,7 +1,7 @@
 callback-count [![Build Status](https://travis-ci.org/tjmehta/callback-count.png)](https://travis-ci.org/tjmehta/callback-count)
 ==============
 
-#### Count callbacks before continuing, tiny control flow helper, allows dynamic counting.
+#### Count callbacks before continuing, tiny control flow helper, allows dynamic counting. 
 
 ### Flow control
 ```js
@@ -10,7 +10,7 @@ var counter = createCounter(done);
 setTimeout(counter.inc().next, 100);
 setTimeout(counter.inc().next, 100);
 
-function done  (err) {
+function done (err) {
   console.log('finished.');
 }
 ```
@@ -22,7 +22,7 @@ var counter = createCounter(done);
 counter.inc().inc().inc();
 counter.next().next().next();
 
-function done  (err) {
+function done (err) {
   console.log('finished.');
 }
 ```
