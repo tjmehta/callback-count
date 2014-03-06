@@ -17,7 +17,7 @@ CallbackCounter.prototype.inc = function () {
 CallbackCounter.prototype.next = function (err) { // function (err, results...)
   var results;
   if (this.err) {
-    return; // already errored
+    return this; // already errored
   }
   else if (err) {
     this.err = err;
@@ -27,7 +27,7 @@ CallbackCounter.prototype.next = function (err) { // function (err, results...)
     this.count--;
     results = Array.prototype.slice.call(arguments, 1);
     this.results.push(results);
-    if (this.count === 0) {
+    if (this.count <= 0) {
       this.done(null, this.results);
     }
   }
