@@ -24,10 +24,10 @@ CallbackCounter.prototype.next = function (err) { // function (err, results...)
     this.done(err);
   }
   else {
-    this.count--;
+    if (this.count > 0) this.count--;
     results = Array.prototype.slice.call(arguments, 1);
     this.results.push(results);
-    if (this.count <= 0) {
+    if (this.count === 0) {
       this.done(null, this.results);
     }
   }
