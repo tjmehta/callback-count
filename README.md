@@ -5,7 +5,8 @@ callback-count [![Build Status](https://travis-ci.org/tjmehta/callback-count.png
 
 ### Flow control
 ```js
-var counter = createCounter(done);
+var callbackCount = require('callback-count');
+var counter = callbackCount(done);
 
 setTimeout(counter.inc().next, 100);
 setTimeout(counter.inc().next, 100);
@@ -17,7 +18,8 @@ function done (err) {
 
 ### .inc() allows you to dynamically update the number of callbacks you are expecting.
 ```js
-var counter = createCounter(done);
+var callbackCount = require('callback-count');
+var counter = callbackCount(done);
 
 counter.inc().inc().inc();
 counter.next().next().next();
@@ -29,7 +31,8 @@ function done (err) {
 
 ### The constructor can take an initial value for the count expected
 ```js
-var counter = createCounter(3, done);
+var callbackCount = require('callback-count');
+var counter = callbackCount(3, done);
 
 counter.next().next().next();
 
