@@ -1,3 +1,5 @@
+'use strict';
+
 var noop = function () {};
 
 function CallbackCounter (count, done) { // or function CallbackCounter (done)
@@ -6,7 +8,7 @@ function CallbackCounter (count, done) { // or function CallbackCounter (done)
     count = null;
   }
   this.count = count || 0;
-  this.done  = done  || noop;
+  this.done = done || noop;
   this.results = [];
   this.next = this.next.bind(this);
 }
@@ -25,7 +27,7 @@ CallbackCounter.prototype.next = function (err) { // function (err, results...)
     this.done(err);
   }
   else {
-    if (this.count > 0) this.count--;
+    if (this.count > 0) { this.count--; }
     results = Array.prototype.slice.call(arguments, 1);
     this.results.push(results);
     if (this.count === 0) {

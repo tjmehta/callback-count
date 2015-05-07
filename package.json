@@ -4,6 +4,7 @@
   "description": "Count your callbacks before continuing. A tiny control flow helper that supports dynamic counting.",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "lab --assert code --coverage"
   },
   "repository": {
@@ -30,6 +31,7 @@
   "homepage": "https://github.com/tjmehta/callback-count",
   "devDependencies": {
     "code": "^1.4.0",
+    "eslint": "^0.20.0",
     "lab": "^5.8.0"
   }
 }
