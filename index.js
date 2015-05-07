@@ -10,8 +10,9 @@ function CallbackCounter (count, done) { // or function CallbackCounter (done)
   this.results = [];
   this.next = this.next.bind(this);
 }
-CallbackCounter.prototype.inc = function () {
-  this.count++;
+CallbackCounter.prototype.inc = function (n) {
+  n = n || 1;
+  this.count += n;
   return this;
 };
 CallbackCounter.prototype.next = function (err) { // function (err, results...)
