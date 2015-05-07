@@ -37,6 +37,7 @@ describe('callback-count', function () {
     // throws an error in lab if `done` is called twice
     var count = createCount(done);
     count.inc(2);
+    expect(count.count).to.equal(2);
     count.next().next();
   });
   it('should callback with the first error that occurs', function (done) {
