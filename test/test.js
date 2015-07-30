@@ -28,4 +28,18 @@ describe('description', function () {
       done();
     }
   });
+  it('should inc w/ the arg provided', function (done) {
+    var count = createCount(checkError);
+    count.inc(3);
+    var err1 = new Error('1');
+    var err2 = new Error('2');
+    var err3 = new Error('3');
+    count.next(err1).next(err2).next(err3);
+    function checkError (err) {
+      console.log(err);
+      console.log(err.message);
+      err.message.should.equal('1');
+      done();
+    }
+  });
 });

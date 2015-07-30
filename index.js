@@ -1,3 +1,4 @@
+var exists = require('exists');
 var noop = function () {};
 
 function CallbackCounter (count, done) { // or function CallbackCounter (done)
@@ -10,8 +11,9 @@ function CallbackCounter (count, done) { // or function CallbackCounter (done)
   this.results = [];
   this.next = this.next.bind(this);
 }
-CallbackCounter.prototype.inc = function () {
-  this.count++;
+CallbackCounter.prototype.inc = function (inc) {
+  inc = exists(inc) ? inc : 1;
+  this.count += inc;
   return this;
 };
 CallbackCounter.prototype.next = function (err) { // function (err, results...)
