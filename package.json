@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/tjmehta/callback-count",
   "devDependencies": {
-    "should": "^3.1.3",
-    "mocha": "^1.17.1"
+    "should": "^11.1.2",
+    "mocha": "^3.2.0"
   },
   "dependencies": {
     "exists": "^1.0.0"
